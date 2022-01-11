@@ -61,8 +61,8 @@ module.exports = {
         const badges = interaction.options.getString('badge');
         const role = interaction.options.getRole('role');
         if (badges === 'staff') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('DISCORD_EMPLOYEE'));
-            const staffBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('DISCORD_EMPLOYEE'))
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('STAFF'));
+            const staffBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('STAFF'))
             if (staffBadges.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Discord Staff\`" })
             }
@@ -76,8 +76,8 @@ module.exports = {
             }
         }
         if (badges === 'partnerd') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('PARTNERED_SERVER_OWNER'));
-            const partnerdBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('PARTNERED_SERVER_OWNER'))
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('PARTNER'));
+            const partnerdBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('PARTNER'))
             if (partnerdBadge.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Partnerd Badge\`" })
             }
@@ -91,8 +91,8 @@ module.exports = {
             }
         }
         if (badges === 'HYPESQUAD_EVENTS') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('HYPESQUAD_EVENTS'));
-            const hypeSquadBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('HYPESQUAD_EVENTS'))
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('HYPESQUAD'));
+            const hypeSquadBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('HYPESQUAD'))
             if (hypeSquadBadge.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`HypeSquad Events\`" })
             }
@@ -106,8 +106,8 @@ module.exports = {
             }
         }
         if (badges === 'BUGHUNTER_LEVEL_1') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('BUGHUNTER_LEVEL_1'));
-            const bughunter1 = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUGHUNTER_LEVEL_1'))
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('BUG_HUNTER_LEVEL_1'));
+            const bughunter1 = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUG_HUNTER_LEVEL_1'))
             if (bughunter1.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Bug Hunter Level 1\`" })
             }
@@ -121,7 +121,7 @@ module.exports = {
             }
         }
         if (badges === 'HOUSE_BRAVERY') {
-            const houseBravery = interaction.guild.members.cache.filter(r => r.user.flags?.has('HOUSE_BRAVERY'))
+            const houseBravery = interaction.guild.members.cache.filter(r => r.user.flags?.has('HYPESQUAD_ONLINE_HOUSE_1'))
             if (houseBravery.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`House Bravery\`" })
             }
@@ -135,7 +135,7 @@ module.exports = {
             }
         }
         if (badges === 'EARLY_SUPPORTER') {
-            const earlyBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('EARLY_SUPPORTER'))
+            const earlyBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('PREMIUM_EARLY_SUPPORTER'))
             if (earlyBadge.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Early Supporter\`" })
             }
@@ -149,7 +149,7 @@ module.exports = {
             }
         }
         if (badges === 'BUGHUNTER_LEVEL_2') {
-            const bughunter2 = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUGHUNTER_LEVEL_2'))
+            const bughunter2 = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUG_HUNTER_LEVEL_2'))
             if (bughunter2.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Bug Hunter Level 2\`" })
             }
@@ -158,7 +158,7 @@ module.exports = {
                 return interaction.reply({ content: `Total Members with role **${role.name}** has \`${badges.replaceAll('_', ' ')}\` is **${getMemberWithRole.size}**\n\n${getFilterdBadges}` })
             }
             if (bughunter2) {
-                const filterBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUGHUNTER_LEVEL_2')).map(r => r.user).join("\n");
+                const filterBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('BUG_HUNTER_LEVEL_2')).map(r => r.user).join("\n");
                 interaction.reply({ content: `There are **${bughunter2.size}** members with this badge\n\n${filterBadges}` })
             }
         }
@@ -177,8 +177,8 @@ module.exports = {
             }
         }
         if (badges === 'EARLY_VERIFIED_BOT_DEVELOPER') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('EARLY_VERIFIED_BOT_DEVELOPER'));
-            const devsBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('EARLY_VERIFIED_BOT_DEVELOPER'));
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('VERIFIED_DEVELOPER'));
+            const devsBadges = interaction.guild.members.cache.filter(r => r.user.flags?.has('VERIFIED_DEVELOPER'));
             if (devsBadges.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Early Verified Bot Developer\`" })
             }
@@ -192,8 +192,8 @@ module.exports = {
             }
         }
         if (badges === 'DISCORD_CERTIFIED_MODERATOR') {
-            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('DISCORD_CERTIFIED_MODERATOR'));
-            const moderatorBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('DISCORD_CERTIFIED_MODERATOR'));
+            const getMemberWithRole = role?.members.filter(r => r.user.flags?.has('CERTIFIED_MODERATOR'));
+            const moderatorBadge = interaction.guild.members.cache.filter(r => r.user.flags?.has('CERTIFIED_MODERATOR'));
             if (moderatorBadge.size === 0) {
                 return interaction.reply({ content: ":x: No one in this server has \`Discord Certified Moderator\`" })
             }
