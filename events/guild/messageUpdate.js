@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = async(client, oldMessgae, newMessage) => {
     const logChannel = client.channels.cache.get(config.log_channel_id);
     if (!logChannel) return;
-    if (oldMessgae.content !== newMessage.content) {
+    if (oldMessgae.content !== newMessage.content && newMessage.content.length > 0) {
         const embed = new Discord.MessageEmbed()
         .setAuthor({ name: newMessage.author.tag, iconURL: newMessage.author.displayAvatarURL({ dynamic: true }) })
         .setTimestamp()
