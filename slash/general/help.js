@@ -1,4 +1,6 @@
-const { MessageEmbed, MessageActionRow, MessageSelectMenu } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
+// TODO: Add components from builders
+
 const humanizeDuration = require("humanize-duration");
 
 module.exports = {
@@ -37,7 +39,7 @@ module.exports = {
             }
             return interaction.reply({ embeds: [embed] })
         }
-        const row = new MessageActionRow()
+        const row = new MessageActionRow
         .addComponents(
             new MessageSelectMenu()
             .setCustomId('help_menu')
